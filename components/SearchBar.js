@@ -13,7 +13,7 @@ export default function SearchBar({ fetchWeatherData,fetchWeatherByLocation }) {
                 value={cityName}
                 onChangeText={(text) => setCityName(text)}
             />
-            <EvilIcons name="search" size={28} color="black"  onPress={() => fetchWeatherData(cityName)}/>
+            <EvilIcons name="search" size={40} color="black"  onPress={() => fetchWeatherData(cityName)}/>
             
         </View>
         

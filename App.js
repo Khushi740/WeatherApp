@@ -63,12 +63,10 @@ export default function App() {
   } else if (weatherData === null) {
     return (
       <View style={styles.container}>
-        <SearchBar fetchWeatherData={fetchWeatherData} />
-        <TouchableOpacity style={styles.button} onPress={fetchWeatherByLocation}>
-          <View style={{marginBottom:-50}}>
+         <TouchableOpacity style={styles.button} onPress={fetchWeatherByLocation}>
           <Text style={styles.buttonText}>📍 Get Weather for Current Location</Text>
-          </View>
         </TouchableOpacity>
+        <SearchBar fetchWeatherData={fetchWeatherData} />
         <Text style={styles.primaryText}>City Not Found! Try Different City</Text>
         
       </View>
@@ -97,14 +95,16 @@ const styles = StyleSheet.create({
     fontSize: 28,
   },
   button: {
-    backgroundColor: '#9F6CE8',
+    backgroundColor: 'rgb(232, 217, 252)',
     padding: 10,
     borderRadius: 5,
-    marginTop: -100,
-    borderRadius:30
+    top:5,
+    right:2,
+    borderRadius:30,
+    position:'absolute'
   },
   buttonText: {
-    color: '#fff',
+    color: 'black',
     textAlign: 'center',
   },
 });

@@ -8,10 +8,11 @@ export default function Weather({ weatherData, fetchWeatherData }) {
     weather,
     name,
     sys: { country },
-    main: { temp, humidity },
+    main: { temp, humidity,temp_max,temp_min ,pressure},
     wind: { speed },
+    // weather:{description}
   } = weatherData;
-  const [{ main }] = weather;
+  const [{ main ,description}] = weather;
 
   return (
     <View style={styles.container}>
@@ -19,13 +20,17 @@ export default function Weather({ weatherData, fetchWeatherData }) {
       <View style={styles.subContainer}>
         <SearchBar fetchWeatherData={fetchWeatherData} />
         <View style={{ alignItems: 'center' }}>
-          <Text style={{ ...styles.headerText, fontWeight: 'bold', fontSize: 46 }}>{name}</Text>
-          <Text style={{ ...styles.headerText, fontWeight: 'bold', fontSize: 46 }}>{country}</Text>
+          <Text style={{ ...styles.headerText, fontWeight: 'bold', fontSize: 40 }}>City:{name}</Text>
+          <Text style={{ ...styles.headerText, fontWeight: 'bold', fontSize: 40 }}>Country:{country}</Text>
           <Text style={{ ...styles.headerText, fontWeight: 'bold' }}>{main}</Text>
+          <Text style={{fontSize: 18,fontWeight:'500'}}>Dis:{description}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={styles.headerText}>{temp} °C</Text>
-            <FontAwesome name="thermometer" size={28} color="#9B6CE8" style={{ marginLeft: 16,marginTop:11 }} />
+          <FontAwesome name="thermometer" size={28} color="#9B6CE8" style={{ marginLeft: 16,marginTop:11 }} />
           </View>
+          <View  style={{  alignItems: 'center' }}>
+          <Text style={{fontSize:20,fontWeight:'500'}}>Pressure:{pressure} hPa</Text>
+            </View>
         </View>
         <View style={styles.extraInfo}>
           <View style={styles.info}>
@@ -57,7 +62,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     flex: 1,
     borderRadius: 50,
-    marginBottom: 80
   },
   headerText: {
     fontSize: 36,
@@ -66,7 +70,6 @@ const styles = StyleSheet.create({
   },
   extraInfo: {
     flexDirection: 'row',
-    marginTop: 20,
     justifyContent: 'space-between',
     padding: 10,
   },
