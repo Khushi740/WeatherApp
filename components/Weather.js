@@ -8,7 +8,7 @@ export default function Weather({ weatherData, fetchWeatherData }) {
     weather,
     name,
     sys: { country },
-    main: { temp, humidity,temp_max,temp_min ,pressure},
+    main: { temp, humidity,pressure},
     wind: { speed },
     // weather:{description}
   } = weatherData;
